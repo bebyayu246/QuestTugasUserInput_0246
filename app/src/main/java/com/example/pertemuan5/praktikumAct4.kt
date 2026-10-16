@@ -88,4 +88,5 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                         color = colorResource(id = R.color.text_subtitle),
                         fontSize = 11.sp
                     )
+                    Spacer(modifier = Modifier.height(14.dp))
         }
