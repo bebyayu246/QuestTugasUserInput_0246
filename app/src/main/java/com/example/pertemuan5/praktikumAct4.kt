@@ -50,5 +50,13 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                     .fillMaxWidth()
                     .height(280.dp)
                     .background(colorResource(id = R.color.header_background))
-            )
+            ){
+                Image(
+                    painter = painterResource(id = R.drawable.cute),
+                    contentDescription = null,
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Fit
+                )
+            }
+
         }
