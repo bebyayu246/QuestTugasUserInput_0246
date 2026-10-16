@@ -44,5 +44,11 @@ fun FormBiodata(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-        )
+        ){
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(280.dp)
+                    .background(colorResource(id = R.color.header_background))
+            )
         }
