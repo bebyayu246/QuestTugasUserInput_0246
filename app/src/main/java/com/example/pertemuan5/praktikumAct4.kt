@@ -184,4 +184,32 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                     }
 
                     Spacer(modifier = Modifier.height(14.dp))
+
+                    // Button Proceed / Submit
+                    Button(
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = colorResource(id = R.color.purple_title)
+                        ),
+                        onClick = {
+                            namaDepan = textNamaDepan
+                            namaBelakang = textNamaBelakang
+                            email = textEmail
+                            tglLahir = textTglLahir
+                            experience = textExperience
+
+                            val listSkill = mutableListOf<String>()
+                            if (androidChecked) listSkill.add("Android")
+                            if (uiUxChecked) listSkill.add("UI/UX")
+                            if (webChecked) listSkill.add("Web")
+                            skillResult = listSkill.joinToString(", ")
+                        }
+                    ) {
+                        Text(
+                            text = stringResource(id = R.string.btn_proceed),
+                            color = Color.White
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(10.dp))
         }
