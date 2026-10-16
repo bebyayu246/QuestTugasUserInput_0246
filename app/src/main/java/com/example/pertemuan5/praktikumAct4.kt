@@ -112,4 +112,6 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                             onValueChange = { textNamaBelakang = it }
                         )
                     }
+
+                    Spacer(modifier = Modifier.height(8.dp))
         }
