@@ -40,5 +40,9 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     Scaffold(
         modifier = modifier.fillMaxSize()
     ) { innerPadding ->
-
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+        )
         }
