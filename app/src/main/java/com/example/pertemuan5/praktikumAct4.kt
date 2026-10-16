@@ -68,5 +68,12 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                 colors = CardDefaults.cardColors(
                     containerColor = colorResource(id = R.color.background_card)
                 )
-            )
+            ){
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(20.dp),
+                    verticalArrangement = Arrangement.Top,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                )
         }
