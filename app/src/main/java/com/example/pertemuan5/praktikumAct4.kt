@@ -89,4 +89,10 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                         fontSize = 11.sp
                     )
                     Spacer(modifier = Modifier.height(14.dp))
+
+                    // Input Nama Depan & Nama Belakang
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    )
         }
