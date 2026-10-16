@@ -151,4 +151,16 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                     }
 
                     Spacer(modifier = Modifier.height(12.dp))
+
+                    // Label & Checkbox Skill
+                    Box(
+                        modifier = Modifier.fillMaxWidth(),
+                        contentAlignment = Alignment.CenterStart
+                    ) {
+                        Text(
+                            text = stringResource(id = R.string.label_skills),
+                            fontSize = 13.sp,
+                            color = Color.Black
+                        )
+                    }
         }
