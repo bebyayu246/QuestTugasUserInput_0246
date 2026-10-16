@@ -30,4 +30,11 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     var uiUxChecked by remember { mutableStateOf(false) }
     var webChecked by remember { mutableStateOf(false) }
 
+    var namaDepan by remember { mutableStateOf("") }
+    var namaBelakang by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var tglLahir by remember { mutableStateOf("") }
+    var experience by remember { mutableStateOf("") }
+    var skillResult by remember { mutableStateOf("") }
+
 }
