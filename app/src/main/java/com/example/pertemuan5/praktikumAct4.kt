@@ -94,5 +94,22 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    )
+                    ){
+                        OutlinedTextField(
+                            value = textNamaDepan,
+                            singleLine = true,
+                            shape = RoundedCornerShape(12.dp),
+                            modifier = Modifier.weight(1f),
+                            label = { Text(stringResource(id = R.string.hint_first_name)) },
+                            onValueChange = { textNamaDepan = it }
+                        )
+                        OutlinedTextField(
+                            value = textNamaBelakang,
+                            singleLine = true,
+                            shape = RoundedCornerShape(12.dp),
+                            modifier = Modifier.weight(1f),
+                            label = { Text(stringResource(id = R.string.hint_last_name)) },
+                            onValueChange = { textNamaBelakang = it }
+                        )
+                    }
         }
