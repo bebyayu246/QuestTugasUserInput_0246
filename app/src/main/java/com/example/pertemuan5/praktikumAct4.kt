@@ -58,5 +58,15 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                     contentScale = ContentScale.Fit
                 )
             }
-
+            // Komponen Card Utama yang Mengapung diatas Scaffold
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 210.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
+                    .shadow(16.dp, shape = RoundedCornerShape(topStart = 32.dp, topEnd = 32.dp)),
+                shape = RoundedCornerShape(topStart = 32.dp, topEnd = 32.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = colorResource(id = R.color.background_card)
+                )
+            )
         }
