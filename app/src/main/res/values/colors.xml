@@ -4,4 +4,5 @@
     <color name="text_subtitle">#777777</color>
     <color name="background_card">#FFFFFF</color>
     <color name="button_color">#5A2E98</color>
+    <color name="header_background">#FFFFFF</color>
 </resources>
