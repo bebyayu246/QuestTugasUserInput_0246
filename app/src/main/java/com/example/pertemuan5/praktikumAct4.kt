@@ -1,7 +1,9 @@
 package com.example.pertemuan5
 
+import android.app.DatePickerDialog
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -11,11 +13,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import java.util.Calendar
 
 @Composable
 fun FormBiodata(modifier: Modifier = Modifier) {
@@ -25,6 +29,9 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     var textEmail by remember { mutableStateOf("") }
     var textTglLahir by remember { mutableStateOf("") }
     var textExperience by remember { mutableStateOf("") }
+
+    var expandedExperience by remember { mutableStateOf(false) }
+    val experienceOptions = listOf("Junior (0-1 Tahun)", "Mid-Level (1-3 Tahun)", "Senior (3+ Tahun)")
 
     var androidChecked by remember { mutableStateOf(false) }
     var uiUxChecked by remember { mutableStateOf(false) }
@@ -36,6 +43,21 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     var tglLahir by remember { mutableStateOf("") }
     var experience by remember { mutableStateOf("") }
     var skillResult by remember { mutableStateOf("") }
+
+    // Konfigurasi DatePickerDialog untuk Tanggal Lahir
+    val context = LocalContext.current
+    val calendar = Calendar.getInstance()
+    val year = calendar.get(Calendar.YEAR)
+    val month = calendar.get(Calendar.MONTH)
+    val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+    val datePickerDialog = DatePickerDialog(
+        context,
+        { _, selectedYear, selectedMonth, selectedDay ->
+            textTglLahir = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+        },
+        year, month, day
+    )
 
     Scaffold(
         modifier = modifier.fillMaxSize()
@@ -132,37 +154,66 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
-                        // Field Tgl Lahir dengan ikon kalender di kanan
+                        // Field Tgl Lahir (Read Only, membuka DatePickerDialog saat diklik)
                         OutlinedTextField(
                             value = textTglLahir,
+                            onValueChange = {},
+                            readOnly = true,
                             singleLine = true,
                             shape = RoundedCornerShape(12.dp),
-                            modifier = Modifier.weight(1f),
+                            modifier = Modifier
+                                .weight(1f)
+                                .clickable { datePickerDialog.show() },
                             label = { Text(stringResource(id = R.string.hint_birth_date)) },
                             trailingIcon = {
-                                Icon(
-                                    painter = painterResource(id = android.R.drawable.ic_menu_my_calendar),
-                                    contentDescription = null
-                                )
-                            },
-                            onValueChange = { textTglLahir = it }
+                                IconButton(onClick = { datePickerDialog.show() }) {
+                                    Icon(
+                                        painter = painterResource(id = android.R.drawable.ic_menu_my_calendar),
+                                        contentDescription = null
+                                    )
+                                }
+                            }
                         )
 
-                        // Field Experience dengan ikon panah dropdown di kanan
-                        OutlinedTextField(
-                            value = textExperience,
-                            singleLine = true,
-                            shape = RoundedCornerShape(12.dp),
-                            modifier = Modifier.weight(1f),
-                            label = { Text(stringResource(id = R.string.hint_experience)) },
-                            trailingIcon = {
-                                Icon(
-                                    painter = painterResource(id = android.R.drawable.arrow_down_float),
-                                    contentDescription = null
-                                )
-                            },
-                            onValueChange = { textExperience = it }
-                        )
+                        // Field Experience (Read Only, dengan DropdownMenu pilihan)
+                        Box(
+                            modifier = Modifier.weight(1f)
+                        ) {
+                            OutlinedTextField(
+                                value = textExperience,
+                                onValueChange = {},
+                                readOnly = true,
+                                singleLine = true,
+                                shape = RoundedCornerShape(12.dp),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clickable { expandedExperience = true },
+                                label = { Text(stringResource(id = R.string.hint_experience)) },
+                                trailingIcon = {
+                                    IconButton(onClick = { expandedExperience = !expandedExperience }) {
+                                        Icon(
+                                            painter = painterResource(id = android.R.drawable.arrow_down_float),
+                                            contentDescription = null
+                                        )
+                                    }
+                                }
+                            )
+
+                            DropdownMenu(
+                                expanded = expandedExperience,
+                                onDismissRequest = { expandedExperience = false }
+                            ) {
+                                experienceOptions.forEach { option ->
+                                    DropdownMenuItem(
+                                        text = { Text(text = option) },
+                                        onClick = {
+                                            textExperience = option
+                                            expandedExperience = false
+                                        }
+                                    )
+                                }
+                            }
+                        }
                     }
 
                     Spacer(modifier = Modifier.height(12.dp))
