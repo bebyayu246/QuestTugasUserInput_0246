@@ -37,4 +37,8 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     var experience by remember { mutableStateOf("") }
     var skillResult by remember { mutableStateOf("") }
 
-}
+    Scaffold(
+        modifier = modifier.fillMaxSize()
+    ) { innerPadding ->
+
+        }
