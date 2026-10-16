@@ -83,4 +83,9 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                         fontSize = 22.sp,
                         style = MaterialTheme.typography.titleLarge
                     )
+                    Text(
+                        text = stringResource(id = R.string.form_subtitle),
+                        color = colorResource(id = R.color.text_subtitle),
+                        fontSize = 11.sp
+                    )
         }
