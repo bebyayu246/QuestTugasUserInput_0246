@@ -132,20 +132,35 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
+                        // Field Tgl Lahir dengan ikon kalender di kanan
                         OutlinedTextField(
                             value = textTglLahir,
                             singleLine = true,
                             shape = RoundedCornerShape(12.dp),
                             modifier = Modifier.weight(1f),
                             label = { Text(stringResource(id = R.string.hint_birth_date)) },
+                            trailingIcon = {
+                                Icon(
+                                    painter = painterResource(id = android.R.drawable.ic_menu_my_calendar),
+                                    contentDescription = null
+                                )
+                            },
                             onValueChange = { textTglLahir = it }
                         )
+
+                        // Field Experience dengan ikon panah dropdown di kanan
                         OutlinedTextField(
                             value = textExperience,
                             singleLine = true,
                             shape = RoundedCornerShape(12.dp),
                             modifier = Modifier.weight(1f),
                             label = { Text(stringResource(id = R.string.hint_experience)) },
+                            trailingIcon = {
+                                Icon(
+                                    painter = painterResource(id = android.R.drawable.arrow_down_float),
+                                    contentDescription = null
+                                )
+                            },
                             onValueChange = { textExperience = it }
                         )
                     }
