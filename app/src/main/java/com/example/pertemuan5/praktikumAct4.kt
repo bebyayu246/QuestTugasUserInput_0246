@@ -163,4 +163,25 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                             color = Color.Black
                         )
                     }
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Checkbox(checked = androidChecked, onCheckedChange = { androidChecked = it })
+                            Text(text = stringResource(id = R.string.skill_android), fontSize = 11.sp)
+                        }
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Checkbox(checked = uiUxChecked, onCheckedChange = { uiUxChecked = it })
+                            Text(text = stringResource(id = R.string.skill_ui_ux), fontSize = 11.sp)
+                        }
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Checkbox(checked = webChecked, onCheckedChange = { webChecked = it })
+                            Text(text = stringResource(id = R.string.skill_web), fontSize = 11.sp)
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(14.dp))
         }
