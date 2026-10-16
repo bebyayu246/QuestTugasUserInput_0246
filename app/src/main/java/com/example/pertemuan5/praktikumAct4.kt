@@ -126,4 +126,29 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                     )
 
                     Spacer(modifier = Modifier.height(8.dp))
+
+                    // Input Tgl Lahir & Experience
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        OutlinedTextField(
+                            value = textTglLahir,
+                            singleLine = true,
+                            shape = RoundedCornerShape(12.dp),
+                            modifier = Modifier.weight(1f),
+                            label = { Text(stringResource(id = R.string.hint_birth_date)) },
+                            onValueChange = { textTglLahir = it }
+                        )
+                        OutlinedTextField(
+                            value = textExperience,
+                            singleLine = true,
+                            shape = RoundedCornerShape(12.dp),
+                            modifier = Modifier.weight(1f),
+                            label = { Text(stringResource(id = R.string.hint_experience)) },
+                            onValueChange = { textExperience = it }
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(12.dp))
         }
