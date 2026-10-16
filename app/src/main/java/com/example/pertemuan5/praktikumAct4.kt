@@ -75,5 +75,12 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                         .padding(20.dp),
                     verticalArrangement = Arrangement.Top,
                     horizontalAlignment = Alignment.CenterHorizontally
-                )
+                ){
+                    // Judul Form
+                    Text(
+                        text = stringResource(id = R.string.form_title),
+                        color = colorResource(id = R.color.purple_title),
+                        fontSize = 22.sp,
+                        style = MaterialTheme.typography.titleLarge
+                    )
         }
