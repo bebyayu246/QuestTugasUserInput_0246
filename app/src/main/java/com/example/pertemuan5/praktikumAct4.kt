@@ -44,13 +44,13 @@ fun FormBiodata(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-        ){
+        ) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(280.dp)
                     .background(colorResource(id = R.color.header_background))
-            ){
+            ) {
                 Image(
                     painter = painterResource(id = R.drawable.cute),
                     contentDescription = null,
@@ -68,14 +68,14 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                 colors = CardDefaults.cardColors(
                     containerColor = colorResource(id = R.color.background_card)
                 )
-            ){
+            ) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(20.dp),
                     verticalArrangement = Arrangement.Top,
                     horizontalAlignment = Alignment.CenterHorizontally
-                ){
+                ) {
                     // Judul Form
                     Text(
                         text = stringResource(id = R.string.form_title),
@@ -94,7 +94,7 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ){
+                    ) {
                         OutlinedTextField(
                             value = textNamaDepan,
                             singleLine = true,
@@ -170,8 +170,13 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Checkbox(checked = androidChecked, onCheckedChange = { androidChecked = it })
-                            Text(text = stringResource(id = R.string.skill_android), fontSize = 11.sp)
+                            Checkbox(
+                                checked = androidChecked,
+                                onCheckedChange = { androidChecked = it })
+                            Text(
+                                text = stringResource(id = R.string.skill_android),
+                                fontSize = 11.sp
+                            )
                         }
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Checkbox(checked = uiUxChecked, onCheckedChange = { uiUxChecked = it })
@@ -212,4 +217,43 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                     }
 
                     Spacer(modifier = Modifier.height(10.dp))
+
+                    // ElevatedCard untuk Menampilkan Hasil Data
+                    ElevatedCard(
+                        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+                        colors = CardDefaults.cardColors(containerColor = Color.Black),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 4.dp)
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 10.dp)
+                        ) {
+                            Text(
+                                text = "Nama : $namaDepan $namaBelakang",
+                                color = Color.White,
+                                fontSize = 12.sp
+                            )
+                            Text(text = "Email : $email", color = Color.White, fontSize = 12.sp)
+                            Text(
+                                text = "Tgl Lahir : $tglLahir",
+                                color = Color.White,
+                                fontSize = 12.sp
+                            )
+                            Text(
+                                text = "Experience : $experience",
+                                color = Color.White,
+                                fontSize = 12.sp
+                            )
+                            Text(
+                                text = "Skill : $skillResult",
+                                color = Color.White,
+                                fontSize = 12.sp
+                            )
+                        }
+                    }
+                }
+            }
         }
+    }
+}
