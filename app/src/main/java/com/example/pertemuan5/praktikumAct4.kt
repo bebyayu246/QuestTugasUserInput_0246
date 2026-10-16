@@ -19,3 +19,15 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun FormBiodata(modifier: Modifier = Modifier) {
+    // Variabel-variabel untuk mengingat nilai masukan dari keyboard
+    var textNamaDepan by remember { mutableStateOf("") }
+    var textNamaBelakang by remember { mutableStateOf("") }
+    var textEmail by remember { mutableStateOf("") }
+    var textTglLahir by remember { mutableStateOf("") }
+    var textExperience by remember { mutableStateOf("") }
+
+    var androidChecked by remember { mutableStateOf(false) }
+    var uiUxChecked by remember { mutableStateOf(false) }
+    var webChecked by remember { mutableStateOf(false) }
+
+}
