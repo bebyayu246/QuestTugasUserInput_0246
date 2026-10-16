@@ -12,4 +12,6 @@
     <string name="skill_ui_ux">UI/UX</string>
     <string name="skill_web">Web</string>
     <string name="btn_proceed">Proceed</string>
+    <string name="result_title">Hasil Biodata</string>
+    <string name="btn_close">Tutup</string>
 </resources>
